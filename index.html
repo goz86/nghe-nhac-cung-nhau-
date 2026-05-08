@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="theme-color" content="#F9F5F0" />
+
+    <!-- Primary Meta Tags -->
+    <title>StudyWith.Me - Học tập & Kết bạn cùng nhau</title>
+    <meta name="title" content="StudyWith.Me - Học tập & Kết bạn cùng nhau" />
+    <meta name="description" content="Nền tảng kết nối du học sinh Việt tại Hàn Quốc. Tạo phòng học, nghe nhạc, xem TikTok cùng bạn bè — không còn cô đơn nơi xứ người!" />
+    <meta name="keywords" content="du học sinh, Hàn Quốc, học cùng nhau, kết bạn, study together, co-working, phòng học, nghe nhạc cùng nhau" />
+    <meta name="author" content="StudyWith.Me" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="StudyWith.Me - Học tập & Kết bạn cùng nhau" />
+    <meta property="og:description" content="Tạo phòng học, nghe nhạc, xem video cùng những người bạn mới. Dành cho du học sinh Việt tại Hàn 🇰🇷" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:locale" content="vi_VN" />
+
+    <!-- Fonts preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <div id="root">
+      <!-- Loading state — hiển thị trong khi chờ JS load -->
+      <div id="loading-screen" style="display:flex; align-items:center; justify-content:center; min-height:100vh; background:#F9F5F0; font-family:system-ui; flex-direction:column; gap:16px; padding:20px;">
+        <div style="font-size:48px; line-height:1;">🤝</div>
+        <div style="font-size:20px; font-weight:600; color:#5C453C;">StudyWith.Me</div>
+        <div style="font-size:14px; color:#9A8A85;">Đang tải...</div>
+        <div style="width:120px; height:3px; background:#EFE3DD; border-radius:4px; overflow:hidden;">
+          <div style="width:30%; height:100%; background:#B68176; border-radius:4px; animation:loadingBar 1.5s ease-in-out infinite;"></div>
+        </div>
+        <style>
+          @keyframes loadingBar {
+            0% { transform: translateX(-100%); width: 30%; }
+            50% { width: 60%; }
+            100% { transform: translateX(400%); width: 30%; }
+          }
+        </style>
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
