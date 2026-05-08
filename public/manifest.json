@@ -1,0 +1,12 @@
+{
+  "name": "StudyWith.Me",
+  "short_name": "StudyWithMe",
+  "description": "Học tập cùng nhau — kết nối du học sinh Việt tại Hàn",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F9F5F0",
+  "theme_color": "#B68176",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

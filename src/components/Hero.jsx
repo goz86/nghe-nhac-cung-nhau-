@@ -1,8 +1,9 @@
-export default function Hero({ setActiveTab, onCreateRoom }) {
-  const scrollTo = (id) => {
-    setActiveTab(id)
-    document.getElementById(`section-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../lib/auth'
+
+export default function Hero() {
+  const navigate = useNavigate()
+  const { user } = useAuth()
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-16 overflow-hidden bg-cream">
@@ -24,7 +25,6 @@ export default function Hero({ setActiveTab, onCreateRoom }) {
       </div>
 
       <div className="relative z-10 text-center max-w-3xl mx-auto">
-        {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blush rounded-full mb-8 anim-stagger">
           <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
           <span className="text-sm font-medium text-terracotta">
@@ -47,23 +47,21 @@ export default function Hero({ setActiveTab, onCreateRoom }) {
           cùng những người bạn mới — ngay bây giờ!
         </p>
 
-        {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 anim-stagger anim-delay-3">
-          <button onClick={() => scrollTo('study')}
-            className="px-8 py-3.5 bg-terracotta text-white font-semibold rounded-2xl shadow-[0_8px_20px_rgba(182,129,118,0.3)] hover:shadow-[0_8px_30px_rgba(182,129,118,0.4)] hover:bg-terracotta-dark active:scale-[0.98] transition-all duration-200 cursor-pointer">
+          <button onClick={() => navigate('/study')}
+            className="px-8 py-3.5 bg-terracotta text-white font-semibold rounded-2xl shadow-[0_8px_20px_rgba(182,129,118,0.3)] hover:shadow-[0_8px_30px_rgba(182,129,118,0.4)] hover:bg-terracotta-dark active:scale-[0.98] transition-all cursor-pointer">
             🚀 Bắt đầu ngay
           </button>
-          <button onClick={onCreateRoom}
-            className="px-8 py-3.5 border-2 border-terracotta/30 text-terracotta font-semibold rounded-2xl bg-blush/50 hover:bg-blush active:scale-[0.98] transition-all duration-200 cursor-pointer">
-            ✨ Tạo phòng mới
-          </button>
-          <button onClick={() => scrollTo('study')}
-            className="px-8 py-3.5 border-2 border-blush-border text-mocha font-semibold rounded-2xl hover:bg-blush active:scale-[0.98] transition-all duration-200 cursor-pointer">
+          <button onClick={() => navigate('/study')}
+            className="px-8 py-3.5 border-2 border-blush-border text-mocha font-semibold rounded-2xl hover:bg-blush active:scale-[0.98] transition-all cursor-pointer">
             Khám phá phòng
+          </button>
+          <button onClick={() => navigate('/dashboard')}
+            className="px-4 py-2 text-sm text-latte hover:text-mocha transition-colors cursor-pointer">
+            📊 Thống kê
           </button>
         </div>
 
-        {/* Stats */}
         <div className="grid grid-cols-3 gap-8 max-w-md mx-auto anim-stagger anim-delay-4">
           {[
             { number: '12+', label: 'Phòng học', color: 'terracotta' },
@@ -71,9 +69,7 @@ export default function Hero({ setActiveTab, onCreateRoom }) {
             { number: '3', label: 'Loại phòng', color: 'terracotta' },
           ].map((stat, i) => (
             <div key={i}>
-              <div className={`text-3xl sm:text-4xl font-bold font-mono ${
-                stat.color === 'terracotta' ? 'text-terracotta' : 'text-mocha'
-              }`}>
+              <div className={`text-3xl sm:text-4xl font-bold font-mono ${stat.color === 'terracotta' ? 'text-terracotta' : 'text-mocha'}`}>
                 {stat.number}
               </div>
               <div className="text-sm text-latte mt-1">{stat.label}</div>
@@ -82,7 +78,6 @@ export default function Hero({ setActiveTab, onCreateRoom }) {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 anim-float">
         <svg className="w-6 h-6 text-latte" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
